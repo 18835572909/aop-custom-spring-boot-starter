@@ -1,14 +1,20 @@
 package com.rhb.spring.aop.support.rabbitmq;
 
 import lombok.Data;
+import org.springframework.amqp.rabbit.config.DirectRabbitListenerContainerFactory;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.amqp.CachingConnectionFactoryConfigurer;
+import org.springframework.boot.autoconfigure.amqp.DirectRabbitListenerContainerFactoryConfigurer;
 import org.springframework.boot.autoconfigure.amqp.RabbitConnectionFactoryBeanConfigurer;
 import org.springframework.boot.autoconfigure.amqp.RabbitTemplateConfigurer;
+import org.springframework.boot.autoconfigure.amqp.SimpleRabbitListenerContainerFactoryConfigurer;
 import org.springframework.messaging.Message;
 import org.springframework.retry.support.RetryTemplate;
 
@@ -100,5 +106,25 @@ public class RabbitCoreComponents {
    */
   @Deprecated
   private RabbitMessagingTemplate rabbitMessagingTemplate;
+
+  /**
+   * configurer转factory
+   *
+   * {@link org.springframework.boot.autoconfigure.amqp.RabbitAnnotationDrivenConfiguration#simpleRabbitListenerContainerFactory(SimpleRabbitListenerContainerFactoryConfigurer, ConnectionFactory, ObjectProvider)}
+   */
+  @Deprecated
+  private SimpleRabbitListenerContainerFactoryConfigurer simpleRabbitListenerContainerFactoryConfigurer;
+
+  private SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory;
+
+  /**
+   * configurer转factory
+   *
+   * {@link org.springframework.boot.autoconfigure.amqp.RabbitAnnotationDrivenConfiguration#directRabbitListenerContainerFactory(DirectRabbitListenerContainerFactoryConfigurer, ConnectionFactory, ObjectProvider)}
+   */
+  private DirectRabbitListenerContainerFactoryConfigurer directRabbitListenerContainerFactoryConfigurer;
+
+  private DirectRabbitListenerContainerFactory directRabbitListenerContainerFactory;
+
 
 }

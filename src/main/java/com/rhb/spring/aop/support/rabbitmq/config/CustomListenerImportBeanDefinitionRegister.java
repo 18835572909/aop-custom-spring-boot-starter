@@ -1,5 +1,6 @@
 package com.rhb.spring.aop.support.rabbitmq.config;
 
+import com.rhb.spring.aop.conf.CustomLifecycle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -21,7 +22,8 @@ public class CustomListenerImportBeanDefinitionRegister implements ImportBeanDef
 
     log.info("EnableCustomRabbit - register ...");
 
-    registry.registerBeanDefinition("rabbitListenerEndpointRegistry",new RootBeanDefinition());
+    registry.registerBeanDefinition("rabbitListenerEndpointRegistry",new RootBeanDefinition(
+        CustomLifecycle.class));
 
     registry.registerBeanDefinition("rabbitListenerAnnotationProcessor",new RootBeanDefinition(CustomRabbitListenerAnnotationBeanPostProcessor.class));
 

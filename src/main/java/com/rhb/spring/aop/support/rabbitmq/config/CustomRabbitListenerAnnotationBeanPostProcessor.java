@@ -23,16 +23,16 @@ public class CustomRabbitListenerAnnotationBeanPostProcessor implements BeanPost
   @Override
   public Object postProcessBeforeInitialization(Object bean, String beanName)
       throws BeansException {
-    log.info("postProcessBeforeInitialization...");
-    return null;
+    log.debug("postProcessBeforeInitialization...");
+    return bean;
   }
 
   @Override
   public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-    log.info("postProcessAfterInitialization...");
+    log.debug("postProcessAfterInitialization...");
 
     /**
-     * 这里罗列下思路：
+     * 罗列下思路：
      *  1. 包扫描，捕捉带有注解的类
      *  2. 针对RListener的两种情况处理：
      *      a. 在类层面
@@ -53,7 +53,6 @@ public class CustomRabbitListenerAnnotationBeanPostProcessor implements BeanPost
        * 一下相关注解，由于是自定义标签，模拟源码，所以用自定义Annotation说明
        *
        * processAmqpListener： 处理RListener在方法上
-       *
        * processMultiMethodListeners： 处理RListener在类上，RHandler在方法上
        */
       if(atType()){
@@ -63,7 +62,7 @@ public class CustomRabbitListenerAnnotationBeanPostProcessor implements BeanPost
       }
     }
 
-    return null;
+    return bean;
   }
 
   private boolean atType(){

@@ -35,13 +35,13 @@ public class AopApplication implements CommandLineRunner {
     DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory)applicationContext.getBeanFactory();
 
     String[] beanDefinitionNames1 = beanFactory.getBeanDefinitionNames();
-    log.info("beanFactory.bean_count:{}",beanDefinitionNames1.length);
+    log.debug("beanFactory.bean_count:{}",beanDefinitionNames1.length);
 
     String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-    log.info("bean_count:{}",beanDefinitionNames.length);
+    log.debug("bean_count:{}",beanDefinitionNames.length);
 
     for (String beanDefinitionName : beanDefinitionNames){
-      log.info("bean_name: {}",beanDefinitionName);
+      log.debug("bean_name: {}",beanDefinitionName);
     }
 
 //
@@ -55,9 +55,6 @@ public class AopApplication implements CommandLineRunner {
 //    log.info("bean==bean1 => {}",businessProperties==businessProperties1);
 
   }
-
-  @Resource
-  SpringUtil springUtil;
 
   @Override
   public void run(String... args) throws Exception {

@@ -1,6 +1,6 @@
 package com.rhb.spring.aop.support.rabbitmq.config;
 
-import com.rhb.spring.aop.support.rabbitmq.annotation.EnableCustomRabbit;
+import com.rhb.spring.aop.support.rabbitmq.annotation.ERabbit;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CustomRabbitConfiguration {
 
-  @EnableCustomRabbit
+  @ERabbit
   protected static class EnableRabbitConfig{
     protected EnableRabbitConfig(){}
   }

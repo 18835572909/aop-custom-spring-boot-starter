@@ -8,6 +8,7 @@ import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.rabbit.retry.MessageRecoverer;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.amqp.CachingConnectionFactoryConfigurer;
@@ -87,6 +88,8 @@ public class RabbitCoreComponents {
    * 组件定义，具体可以通过子类来覆写具体操作方法
    */
   private MessageConverter messageConverter;
+
+  private MessageRecoverer messageRecoverer;
 
   private RetryTemplate retryTemplate;
 

@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    addresses: 172.16.100.8:5672
+    username: admin
+    password: chicv890iop
+    virtual-host: nvwa

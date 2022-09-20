@@ -19,6 +19,6 @@ import org.springframework.context.annotation.Import;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Import(value = {CustomListenerImportBeanDefinitionRegister.class, CustomListenerImportSelector.class})
-public @interface EnableCustomRabbit {
+public @interface ERabbit {
 
 }

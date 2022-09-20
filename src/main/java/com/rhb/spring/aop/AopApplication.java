@@ -7,6 +7,7 @@ import com.rhb.spring.aop.service.OrderService;
 import com.rhb.spring.aop.util.SpringUtil;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
@@ -23,6 +24,7 @@ import org.springframework.context.annotation.Import;
  * @date 2022/9/5 16:56
  */
 @Slf4j
+@EnableRabbit
 @SpringBootApplication
 @MapperScan(basePackages = {"com.rhb.spring.aop.mapper"})
 public class AopApplication implements CommandLineRunner {
